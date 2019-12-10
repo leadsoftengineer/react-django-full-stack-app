@@ -1,3 +1,4 @@
+#KYIV MEDIA 10.12.2019
 """manager URL Configuration
 
 The `urlpatterns` list routes URLs to views. For more information please see:
@@ -17,5 +18,6 @@ from django.contrib import admin
 from django.urls import path,include
 
 urlpatterns = [
+    path('', include('frontend.urls')),
     path('', include('leads.urls')),
 ]
