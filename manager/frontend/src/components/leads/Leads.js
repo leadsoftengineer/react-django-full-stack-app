@@ -1,7 +1,17 @@
-//KYIV MEDIA 11.12.2019
+//KYIV MEDIA 13.12.2019
 import React, { Component } from "react";
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import { getLeads } from "../../actions/leads";
 
 export class Leads extends Component {
+  static propTypes = {
+    leads: PropTypes.array.isRequired
+  };
+  componentDidMount() {
+    this.props.getLeads();
+  }
+
   render() {
     return (
       <div>
@@ -11,4 +21,8 @@ export class Leads extends Component {
   }
 }
 
-export default Leads;
+const mapStateToProps = state => ({
+  leads: state.leads.leads //leads reducer from index.js
+});
+
+export default connect(mapStateToProps, { getLeads })(Leads);
