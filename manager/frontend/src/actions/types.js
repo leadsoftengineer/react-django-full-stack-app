@@ -1,2 +1,3 @@
-//KYIV MEDIA 12.12.2019
+//KYIV MEDIA 16.12.2019
 export const GET_LEADS = "GET_LEADS";
+export const DELETE_LEAD = "DELETE_LEAD";
