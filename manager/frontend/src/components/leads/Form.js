@@ -1,4 +1,4 @@
-//KYIV MEDIA 17.12.2019
+//KYIV MEDIA 18.12.2019
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";

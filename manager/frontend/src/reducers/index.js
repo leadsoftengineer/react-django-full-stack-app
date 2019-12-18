@@ -1,7 +1,9 @@
-//KYIV MEDIA 12.12.2019
+//KYIV MEDIA 18.12.2019
 import { combineReducers } from "redux";
 import leads from "./leads";
+import errors from "./errors";
 
 export default combineReducers({
-  leads
+  leads,
+  errors
 });
