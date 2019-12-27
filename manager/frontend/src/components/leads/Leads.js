@@ -10,7 +10,7 @@ export class Leads extends Component {
     getLeads: PropTypes.func.isRequired,
     deleteLead: PropTypes.func.isRequired
   };
-  componentDidMount() {
+  UNSAFE_componentDidMount() {
     this.props.getLeads();
   }
 

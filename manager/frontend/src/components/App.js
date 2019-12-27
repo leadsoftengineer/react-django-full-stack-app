@@ -1,6 +1,12 @@
 //KYIV MEDIA 18.12.2019
 import React, { Component, Fragment } from "react";
 import ReactDom from "react-dom";
+import {
+  HashRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import Header from "./layout/Header";
@@ -20,13 +26,15 @@ class App extends Component {
     return (
       <Provider store={store}>
         <AlertProvider template={AlertTemplate} {...options}>
-          <Fragment>
-            <Header />
-            <Alerts />
-            <div className="container">
-              <Dashboard />
-            </div>
-          </Fragment>
+          <Router>
+            <Fragment>
+              <Header />
+              <Alerts />
+              <div className="container">
+                <Dashboard />
+              </div>
+            </Fragment>
+          </Router>
         </AlertProvider>
       </Provider>
     );
