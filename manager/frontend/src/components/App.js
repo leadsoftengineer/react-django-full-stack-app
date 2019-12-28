@@ -31,7 +31,7 @@ class App extends Component {
               <Header />
               <Alerts />
               <div className="container">
-                <Dashboard />
+                <Route path="/" exact component={Dashboard} />
               </div>
             </Fragment>
           </Router>
