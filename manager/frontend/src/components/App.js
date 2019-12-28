@@ -11,6 +11,8 @@ import { Provider as AlertProvider } from "react-alert";
 import AlertTemplate from "react-alert-template-basic";
 import Header from "./layout/Header";
 import Dashboard from "../components/leads/Dashboard";
+import Login from "./accounts/Login";
+import Register from "./accounts/Register";
 import Alerts from "./layout/Alerts";
 import { Provider } from "react-redux";
 import store from "../store";
@@ -32,6 +34,8 @@ class App extends Component {
               <Alerts />
               <div className="container">
                 <Route path="/" exact component={Dashboard} />
+                <Route path="/register" exact component={Register} />
+                <Route path="/login" exact component={Login} />
               </div>
             </Fragment>
           </Router>
