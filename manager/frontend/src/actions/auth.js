@@ -1,7 +1,13 @@
 //KYIV MEDIA 02.01.2020
 import axios from "axios";
 import { returnErrors } from "./messages";
-import { USER_LOADING, USER_LOADED, AUTH_ERROR } from "./types";
+import {
+  USER_LOADING,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
+} from "./types";
 
 //CHECK TOKEN & LOAD USER
 export const loadUser = () => (dispatch, getState) => {
@@ -36,6 +42,33 @@ export const loadUser = () => (dispatch, getState) => {
       dispatch(returnErrors(err.response.data, err.response.status));
       dispatch({
         type: AUTH_ERROR
+      });
+    });
+};
+
+//CLOGIN USER
+export const login = (username, password) => dispatch => {
+  //Headers
+  const config = {
+    headers: {
+      "Content-Type": "application/json"
+    }
+  };
+  //Request body
+  const body = JSON.stringify({ username, password });
+
+  axios
+    .post("/api/auth/login", body, config)
+    .then(res => {
+      dispatch({
+        type: LOGIN_SUCCESS,
+        payload: res.data
+      });
+    })
+    .catch(err => {
+      dispatch(returnErrors(err.response.data, err.response.status));
+      dispatch({
+        type: LOGIN_FAIL
       });
     });
 };

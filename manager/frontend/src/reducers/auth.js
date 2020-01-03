@@ -1,5 +1,11 @@
-//KYIV MEDIA 02.01.2019
-import { USER_LOADING, USER_LOADED, AUTH_ERROR } from "../actions/types";
+//KYIV MEDIA 02.01.2020
+import {
+  USER_LOADING,
+  USER_LOADED,
+  AUTH_ERROR,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL
+} from "../actions/types";
 
 const initialState = {
   token: localStorage.getItem("token"),
@@ -22,7 +28,16 @@ export default function(state = initialState, action) {
         isLoading: false,
         user: action.payload
       };
+    case LOGIN_SUCCESS:
+      localStorage.setItem("token", action.payload.token);
+      return {
+        ...state,
+        ...action.payload,
+        isAuthenticated: true,
+        isLoading: false
+      };
     case AUTH_ERROR:
+    case LOGIN_FAIL:
       localStorage.removeItem("token");
       return {
         ...state,
