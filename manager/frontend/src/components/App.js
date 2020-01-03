@@ -39,9 +39,11 @@ class App extends Component {
               <Header />
               <Alerts />
               <div className="container">
-                <PrivateRoute path="/" exact component={Dashboard} />
-                <Route path="/register" exact component={Register} />
-                <Route path="/login" exact component={Login} />
+                <Switch>
+                  <PrivateRoute exact path="/" component={Dashboard} />
+                  <Route exact path="/register" component={Register} />
+                  <Route exact path="/login" component={Login} />
+                </Switch>
               </div>
             </Fragment>
           </Router>
